@@ -20,7 +20,7 @@ function Navbar() {
         {location.pathname === '/' && (
           <Link
             to="/signup"
-            className="rounded-lg border-2 border-red-1 bg-transparent text-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
+            className="rounded-lg border-2 border-red-1 bg-transparent htext-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
           >
             Sign Up
           </Link>
