@@ -1,13 +1,18 @@
-
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 function Navbar() {
   const location = useLocation();
 
+  const { user, logout } = useAuth();
+
   return (
     <nav className="p-4 flex justify-between items-center">
       {/* Logo */}
-      <Link to="/" className="text-white text-2xl font-semibold flex items-center">
+      <Link
+        to="/"
+        className="text-white text-2xl font-semibold flex items-center"
+      >
         <img
           src="/favico.png" // Assuming the image is in the public folder
           alt="Your Logo"
@@ -17,36 +22,29 @@ function Navbar() {
 
       {/* Conditional Sign Up and Sign In Buttons */}
       <div className="mr-40">
-        {location.pathname === '/' && (
+        {!user && location.pathname !== "/sign-in" && (
           <Link
-            to="/signup"
-            className="rounded-lg border-2 border-red-1 bg-transparent htext-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
-          >
-            Sign Up
-          </Link>
-        )}
-         {location.pathname === '/forgot-password' && (
-          <Link
-            to="/signup"
-            className="rounded-lg border-2 border-red-1 bg-transparent text-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
-          >
-            Sign Up
-          </Link>
-        )}
-        {location.pathname === '/signup' && (
-          <Link
-            to="/"
+            to="/sign-in"
             className="rounded-lg border-2 border-red-1 bg-transparent text-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
           >
             Sign In
           </Link>
         )}
-        {location.pathname === '/forgot-password' && (
+        {!user && location.pathname !== "/sign-up" && (
           <Link
-            to="/signup"
+            to="/sign-up"
             className="rounded-lg border-2 border-red-1 bg-transparent text-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
           >
-            Sign In
+            Sign Up
+          </Link>
+        )}
+        {user && (
+          <Link
+            to="/sign-in"
+            onClick={logout}
+            className="rounded-lg border-2 border-red-1 bg-transparent text-red-1 px-2 py-1 w-16 cursor-pointer transition duration-300 hover:bg-red-1 hover:text-white font-bold mr-4"
+          >
+            Log Out
           </Link>
         )}
       </div>

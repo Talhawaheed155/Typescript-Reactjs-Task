@@ -1,23 +1,27 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import LoginPage from './LoginPage';
-import SignupPage from './SignupPage';
-import ResetPasswordPage from './ResetPasswordPage';
-import BlankPage from './BlankPage';
-import ProtectedBlankPage from './ProtectedBlankPage';
+import SignIn from "./pages/sign-in";
+import SignUp from "./pages/sign-up";
+import ResetPassword from "./pages/reset-password";
+import Navbar from "./components/Navbar";
+import Home from "./pages";
+import Dashboard from "./pages/dashboard";
+import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
   return (
     <Router>
-    
-      <Routes>
-        <Route path="/signup" element={<SignupPage/>} />
-        <Route path="/" element={<LoginPage/>} />
-        <Route path='/forgot-password' element={<ResetPasswordPage/>}/>
-        <Route path='/:blank-page' element={<BlankPage/>}/>
-        <Route path='/dashboard:protected Blank' element={<ProtectedBlankPage/>}/>
-      </Routes>
+      <AuthProvider>
+        <Navbar />
+
+        <Routes>
+          <Route index path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/forgot-password" element={<ResetPassword />} />
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }
