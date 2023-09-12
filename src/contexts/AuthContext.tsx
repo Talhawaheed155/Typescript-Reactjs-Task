@@ -75,6 +75,7 @@ export function AuthProvider({ children }: any) {
       })();
     }
   }, [user, loading, location.pathname]);
+  
 
   const value: AuthContextProps = {
     user,
