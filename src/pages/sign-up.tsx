@@ -3,7 +3,6 @@ import Input from "../components/Input";
 
 import { useAuth } from "../contexts/AuthContext";
 import Button from "../components/Button";
-import Navbar from "../components/Navbar";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +13,6 @@ const SignUp: React.FC = () => {
 
   return (
     <>
-    <Navbar/>
       <div className="mt-24"></div>
       <div className="w-96 mx-auto mt-10 p-4 border-2 border-brown-3 rounded-lg shadow-lg bg-brown-1">
         <h2 className="text-center text-xl font-bold text-brown-3">SIGN UP</h2>

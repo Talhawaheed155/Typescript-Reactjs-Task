@@ -67,7 +67,8 @@ export function AuthProvider({ children }: any) {
         if (user === null) {
           if (!nonProtectedPaths.includes(location.pathname))
             navigate("/sign-in");
-        } else {
+        }
+        if (user?.email) {
           if (nonProtectedPaths.includes(location.pathname)) {
             navigate("/dashboard");
           }
@@ -75,7 +76,6 @@ export function AuthProvider({ children }: any) {
       })();
     }
   }, [user, loading, location.pathname]);
-  
 
   const value: AuthContextProps = {
     user,

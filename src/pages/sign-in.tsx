@@ -4,7 +4,6 @@ import Input from "../components/Input";
 import { useAuth } from "../contexts/AuthContext";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +13,6 @@ const SignIn: React.FC = () => {
 
   return (
     <>
-   <Navbar/>
       <div className="mt-24"></div>{" "}
       {/* Add margin-top to create a 4-line distance */}
       <div className="w-96 mx-auto mt-10 p-4 border-2 border-brown-3 rounded-lg shadow-lg bg-brown-1">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Input from "../components/Input";
 import { useAuth } from "../contexts/AuthContext";
-import Navbar from "../components/Navbar";
 
 const ResetPassword: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +9,6 @@ const ResetPassword: React.FC = () => {
 
   return (
     <>
-    <Navbar/>
       <div className="mt-24"></div>
       <div className="w-96 mx-auto mt-10 p-4 border-2 border-brown-3 rounded-lg shadow-lg bg-brown-1">
         <h2 className="text-center  text-xl font-bold text-brown-3">

@@ -6,6 +6,8 @@ function Navbar() {
 
   const { user, logout } = useAuth();
 
+  if (location.pathname.includes("dashboard")) return <></>;
+
   return (
     <nav className="p-4 flex justify-between items-center">
       {/* Logo */}
