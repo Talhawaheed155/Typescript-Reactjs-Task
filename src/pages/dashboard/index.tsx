@@ -6,8 +6,9 @@ import Sidebar from "../../components/Sidebar";
 
 export default function Dashboard() {
   return (
-    <div className="bg-white flex">
+    <div className="bg-white flex min-h-screen">
       <Sidebar />
+
       <Routes>
         <Route path="/" element={<HomeDash />} />
         <Route path="/SentimentAnalysis" element={<SentimentAnalysis />} />
